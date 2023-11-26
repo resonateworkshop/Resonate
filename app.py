@@ -13,7 +13,7 @@ import plotly.io as pio
 custom_palette = ["#ff6633", "#333366", "#0099cc", "#ffcc33", "#99cc33", "#666666"]
 
 ### load dataset
-raw = pd.read_excel(r"C:\Users\npnis\OneDrive\Desktop\Resonate\Combined - Q1, Q2 and Q3 2023.xlsx")
+raw = pd.read_excel(r"Combined - Q1, Q2 and Q3 2023.xlsx")
 
 # Replace missing values in string columns with 'NA'
 string_columns = raw.select_dtypes(include=['object']).columns
