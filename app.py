@@ -7,6 +7,7 @@ from streamlit_extras.grid import grid
 import plotly.graph_objects as go
 import base64
 import plotly.io as pio
+from PIL import Image 
 
 
 ### custom pallete
@@ -71,7 +72,9 @@ st.markdown(
 )
 
 ## Resonate Dashbaord")
-st.sidebar.image("Images\\logo.png", use_column_width=True)
+
+image1 = Image.open('Images\\logo.png')
+st.sidebar.image(image1, use_column_width=True)
 st.sidebar.markdown("# Select the criterias:")
 
 impact_beh_option = st.sidebar.selectbox('Organization\'s Impact or Behavioural Improvement?', ('Impact', 'Behavioural'))
