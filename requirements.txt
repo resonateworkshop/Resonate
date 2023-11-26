@@ -71,8 +71,6 @@ pydeck==0.8.1b0
 PyMatting==1.1.8
 pymdown-extensions==10.4
 pyparsing==3.1.1
-pytz==2023.3.post1
-pywin32==227
 PyYAML==6.0.1
 referencing==0.31.0
 rembg==2.0.37
