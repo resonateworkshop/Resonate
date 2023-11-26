@@ -101,7 +101,6 @@ toml==0.10.2
 toolz==0.12.0
 tzdata==2023.3
 tzlocal==5.2
-urllib3==2.1.0
 uvicorn==0.22.0
 validators==0.22.0
 visualdl==2.5.3
