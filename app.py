@@ -71,7 +71,7 @@ st.markdown(
 )
 
 ## Resonate Dashbaord")
-st.sidebar.image("Images\logo.png", use_column_width=True)
+st.sidebar.image("Images\\logo.png", use_column_width=True)
 st.sidebar.markdown("# Select the criterias:")
 
 impact_beh_option = st.sidebar.selectbox('Organization\'s Impact or Behavioural Improvement?', ('Impact', 'Behavioural'))
