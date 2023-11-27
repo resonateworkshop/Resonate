@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 import base64
 import plotly.io as pio
 from PIL import Image 
-
+import os
 
 ### custom pallete
 custom_palette = ["#ff6633", "#333366", "#0099cc", "#ffcc33", "#99cc33", "#666666"]
@@ -70,6 +70,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+st.write(os.getcwd())
 
 ## Resonate Dashbaord")
 
