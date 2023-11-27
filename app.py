@@ -71,12 +71,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.write(os.getcwd())
-
 ## Resonate Dashbaord")
-
-image1 = Image.open('/mount/src/resonate/Images/logo.png')
-st.sidebar.image(image1, use_column_width=True)
+#image1 = Image.open('/mount/src/resonate/Images/logo.png')
+#st.sidebar.image(image1, use_column_width=True)
 st.sidebar.markdown("# Select the criterias:")
 
 impact_beh_option = st.sidebar.selectbox('Organization\'s Impact or Behavioural Improvement?', ('Impact', 'Behavioural'))
@@ -168,8 +165,8 @@ impact_made_indicator = go.Figure(go.Indicator(
     gauge=dict(bar=dict(color="#ff6633"),
     )))
 
-impact_made_indicator.update_layout(margin=dict(t=10, b=0, l=20, r=20))
-impact_made_indicator.update_traces(title_font_size=20)
+impact_made_indicator.update_layout(margin=dict(t=100, b=0, l=20, r=20))
+impact_made_indicator.update_traces(title_font_size=30)
 impact_made_indicator.update_xaxes(automargin=False)
 impact_made_indicator.update_yaxes(automargin=False)
 
@@ -235,6 +232,7 @@ with st.container():
 
         with col2:
             
+            st.markdown("##")
             col2.markdown(card_style_header("Organization's Impact"), unsafe_allow_html=True)
             col3, col4 = st.columns([3,1])
 
@@ -281,6 +279,7 @@ with st.container():
     if impact_beh_option == "Behavioural":
 
             with col2:
+                st.markdown("##")
                 col2.markdown(card_style_header("Behavioural Impact"), unsafe_allow_html=True)
                 col3, col4 = st.columns([3,1])
 
