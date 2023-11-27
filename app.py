@@ -244,35 +244,35 @@ with st.container():
                 st.markdown("#####")
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\leadership_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/leadership_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[0].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_impact_made.values[0]))), unsafe_allow_html=True)
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\business_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/business_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[1].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_impact_made.values[1]))), unsafe_allow_html=True)
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\new_job_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/new_job_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[2].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_impact_made.values[2]))), unsafe_allow_html=True)
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\academic_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/academic_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[3].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_impact_made.values[3]))), unsafe_allow_html=True)
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\leadership_role_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/leadership_role_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[4].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
@@ -290,39 +290,25 @@ with st.container():
                 st.markdown("#####")
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\leadership_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/leadership_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_behaviour_made.index[0].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_behaviour_made.values[0]))), unsafe_allow_html=True)
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\business_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/business_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_behaviour_made.index[1].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_behaviour_made.values[1]))), unsafe_allow_html=True)
 
             with col3:
-                image_path = base64.b64encode(open(r"Images\new_job_logo-removebg-preview.png", 'rb').read()).decode()
+                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/new_job_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_behaviour_made.index[2].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_behaviour_made.values[2]))), unsafe_allow_html=True)
-
-            # with col3:
-            #     image_path = base64.b64encode(open(r"Images\academic_logo-removebg-preview.png", 'rb').read()).decode()
-            #     content = sum_impact_made.index[3].split('-')[1]
-            #     col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
-            # with col4:
-            #     col4.markdown(card_style_value(str(int(sum_impact_made.values[3]))), unsafe_allow_html=True)
-
-            # with col3:
-            #     image_path = base64.b64encode(open(r"Images\leadership_role_logo-removebg-preview.png", 'rb').read()).decode()
-            #     content = sum_impact_made.index[4].split('-')[1]
-            #     col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
-            # with col4:
-            #     col4.markdown(card_style_value(str(int(sum_impact_made.values[4]))), unsafe_allow_html=True)
 
 with st.container():
     col1, col2 = st.columns(2)
