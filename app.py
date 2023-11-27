@@ -75,7 +75,7 @@ st.write(os.getcwd())
 
 ## Resonate Dashbaord")
 
-image1 = Image.open('/mount/src/Images/logo.png')
+image1 = Image.open('mount/src/resonate/Images/logo.png')
 st.sidebar.image(image1, use_column_width=True)
 st.sidebar.markdown("# Select the criterias:")
 
