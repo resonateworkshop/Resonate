@@ -168,8 +168,8 @@ impact_made_indicator = go.Figure(go.Indicator(
     gauge=dict(bar=dict(color="#ff6633"),
     )))
 
-impact_made_indicator.update_layout(margin=dict(t=0, b=0, l=20, r=20))
-impact_made_indicator.update_traces(title_font_size=30)
+impact_made_indicator.update_layout(margin=dict(t=10, b=0, l=20, r=20))
+impact_made_indicator.update_traces(title_font_size=20)
 impact_made_indicator.update_xaxes(automargin=False)
 impact_made_indicator.update_yaxes(automargin=False)
 
