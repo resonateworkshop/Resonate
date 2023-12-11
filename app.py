@@ -112,7 +112,7 @@ for index, row in result_melted.groupby('Impact')['Sum'].sum().reset_index().ite
     fig_impact.add_annotation(
         x=row['Impact'],
         y=row['Sum'] + 30,  # Adjust the vertical position of the text
-        text=str(((row['Sum']/impact_filtered_data.shape[0])*100)),
+        text=str((int((row['Sum']/impact_filtered_data.shape[0])*100))),
         showarrow=False,
     )
 
