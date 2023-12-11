@@ -150,7 +150,7 @@ sum_behaviour_made = behaviour_data.sum()
 
 impact_col1 = (sum_impact_made.values[0]/total_impact_made)*100
 impact_col2 = (sum_impact_made.values[1]/total_impact_made)*100
-impact_col3 = (sum_impact_made.values[2] + sum_impact_made.values[3]/total_impact_made)*100
+impact_col3 = ((sum_impact_made.values[2] + sum_impact_made.values[3])/total_impact_made)*100
 impact_col4 = (sum_impact_made.values[4]/total_impact_made)*100
 
 behaviour_col1 = sum_behaviour_made.values[0]
