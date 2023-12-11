@@ -101,16 +101,17 @@ fig_sunburst.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'cen
 ### stacked bar plot - Impact
 result = filtered_data.groupby(['Quarter'])[impact_filter].sum().reset_index()
 result_melted = pd.melt(result, id_vars=['Quarter'], var_name='Impact', value_name='Sum')
+result_melted['perc_impact'] = (result_melted['Sum']/impact_filtered_data.shape[0])*100
 st.write(result_melted)
-fig_impact = px.bar(result_melted, x='Impact', y='Sum', color='Quarter', barmode = "stack", 
+fig_impact = px.bar(result_melted, x='Impact', y='perc_impact', color='Quarter', barmode = "stack", 
                     title = "Total Impact made each quarter", color_discrete_sequence=custom_palette)
 fig_impact.update_layout(legend=dict(orientation='h', xanchor = "center", x = 0.5, y = 1.2))
 fig_impact.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'center'))
-for index, row in result_melted.groupby('Impact')['Sum'].sum().reset_index().iterrows():
+for index, row in result_melted.groupby('Impact')['perc_impact'].sum().reset_index().iterrows():
     fig_impact.add_annotation(
         x=row['Impact'],
-        y=row['Sum'] + 30,  # Adjust the vertical position of the text
-        text=str((int((row['Sum']/impact_filtered_data.shape[0])*100))) + "%",
+        y=row['perc_impact'] + 30,  # Adjust the vertical position of the text
+        text=str(int(row['perc_impact'])) + "%",
         showarrow=False,
     )
 
