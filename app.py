@@ -150,9 +150,8 @@ sum_behaviour_made = behaviour_data.sum()
 
 impact_col1 = sum_impact_made.values[0]
 impact_col2 = sum_impact_made.values[1]
-impact_col3 = sum_impact_made.values[2]
-impact_col4 = sum_impact_made.values[3]
-impact_col5 = sum_impact_made.values[4]
+impact_col3 = sum_impact_made.values[2] + sum_impact_made.values[3]
+impact_col4 = sum_impact_made.values[4]
 
 behaviour_col1 = sum_behaviour_made.values[0]
 behaviour_col2 = sum_behaviour_made.values[1]
@@ -161,7 +160,7 @@ behaviour_col3 = sum_behaviour_made.values[2]
 impact_made_indicator = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = total_impact_made,
-    title = {'text': "Total Impact Made"},
+    title = {'text': "Total Participants Surveyed"},
     gauge=dict(bar=dict(color="#ff6633"),
     )))
 
@@ -233,7 +232,7 @@ with st.container():
         with col2:
             
             st.markdown("##")
-            col2.markdown(card_style_header("Organization's Impact"), unsafe_allow_html=True)
+            col2.markdown(card_style_header("Indicators of Success"), unsafe_allow_html=True)
             col3, col4 = st.columns([3,1])
 
             with col3:
@@ -257,24 +256,24 @@ with st.container():
 
             with col3:
                 image_path = base64.b64encode(open(r"/mount/src/resonate/Images/new_job_logo-removebg-preview.png", 'rb').read()).decode()
-                content = sum_impact_made.index[2].split('-')[1]
+                content = "Promotion"
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
-                col4.markdown(card_style_value(str(int(sum_impact_made.values[2]))), unsafe_allow_html=True)
+                col4.markdown(card_style_value(str(int(sum_impact_made.values[2] + sum_impact_made.values[3]))), unsafe_allow_html=True)
 
             with col3:
                 image_path = base64.b64encode(open(r"/mount/src/resonate/Images/academic_logo-removebg-preview.png", 'rb').read()).decode()
-                content = sum_impact_made.index[3].split('-')[1]
-                col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
-            with col4:
-                col4.markdown(card_style_value(str(int(sum_impact_made.values[3]))), unsafe_allow_html=True)
-
-            with col3:
-                image_path = base64.b64encode(open(r"/mount/src/resonate/Images/leadership_role_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[4].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
                 col4.markdown(card_style_value(str(int(sum_impact_made.values[4]))), unsafe_allow_html=True)
+
+            # with col3:
+            #     image_path = base64.b64encode(open(r"/mount/src/resonate/Images/leadership_role_logo-removebg-preview.png", 'rb').read()).decode()
+            #     content = sum_impact_made.index[4].split('-')[1]
+            #     col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
+            # with col4:
+            #     col4.markdown(card_style_value(str(int(sum_impact_made.values[4]))), unsafe_allow_html=True)
 
     if impact_beh_option == "Behavioural":
 
