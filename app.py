@@ -148,10 +148,10 @@ total_behaviour_made = behaviour_filtered_data.shape[0]
 sum_impact_made = impact_data.sum()
 sum_behaviour_made = behaviour_data.sum()
 
-impact_col1 = sum_impact_made.values[0]
-impact_col2 = sum_impact_made.values[1]
-impact_col3 = sum_impact_made.values[2] + sum_impact_made.values[3]
-impact_col4 = sum_impact_made.values[4]
+impact_col1 = (sum_impact_made.values[0]/total_impact_made)*100
+impact_col2 = (sum_impact_made.values[1]/total_impact_made)*100
+impact_col3 = (sum_impact_made.values[2] + sum_impact_made.values[3]/total_impact_made)*100
+impact_col4 = (sum_impact_made.values[4]/total_impact_made)*100
 
 behaviour_col1 = sum_behaviour_made.values[0]
 behaviour_col2 = sum_behaviour_made.values[1]
@@ -245,28 +245,28 @@ with st.container():
                 content = sum_impact_made.index[0].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
-                col4.markdown(card_style_value(str(int(sum_impact_made.values[0]))), unsafe_allow_html=True)
+                col4.markdown(card_style_value(str(int(impact_col1)) + "%"), unsafe_allow_html=True)
 
             with col3:
                 image_path = base64.b64encode(open(r"/mount/src/resonate/Images/business_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[1].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
-                col4.markdown(card_style_value(str(int(sum_impact_made.values[1]))), unsafe_allow_html=True)
+                col4.markdown(card_style_value(str(int(impact_col2)) + "%"), unsafe_allow_html=True)
 
             with col3:
                 image_path = base64.b64encode(open(r"/mount/src/resonate/Images/new_job_logo-removebg-preview.png", 'rb').read()).decode()
                 content = "Promotion"
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
-                col4.markdown(card_style_value(str(int(sum_impact_made.values[2] + sum_impact_made.values[3]))), unsafe_allow_html=True)
+                col4.markdown(card_style_value(str(int(impact_col3)) + "%"), unsafe_allow_html=True)
 
             with col3:
                 image_path = base64.b64encode(open(r"/mount/src/resonate/Images/academic_logo-removebg-preview.png", 'rb').read()).decode()
                 content = sum_impact_made.index[4].split('-')[1]
                 col3.markdown(card_style_desc(image_path, content), unsafe_allow_html=True)
             with col4:
-                col4.markdown(card_style_value(str(int(sum_impact_made.values[4]))), unsafe_allow_html=True)
+                col4.markdown(card_style_value(str(int(impact_col4)) + "%"), unsafe_allow_html=True)
 
             # with col3:
             #     image_path = base64.b64encode(open(r"/mount/src/resonate/Images/leadership_role_logo-removebg-preview.png", 'rb').read()).decode()
