@@ -112,16 +112,9 @@ for index, row in result_melted.groupby('Impact')['Sum'].sum().reset_index().ite
     fig_impact.add_annotation(
         x=row['Impact'],
         y=row['Sum'] + 30,  # Adjust the vertical position of the text
-        text=str(row['Sum']),
+        text=str(((row['Sum']/impact_filtered_data.shape[0])*100)),
         showarrow=False,
     )
-
-### deep stacked bar plot - Impact
-# result = filtered_data.groupby(['Quarter', 'Age_bins'])[impact_filter].sum().reset_index()
-# result_melted = pd.melt(result, id_vars=['Quarter', 'Age_bins'], var_name='Impact', value_name='Sum')
-# fig_impact = px.bar(result_melted, x='Quarter', y='Sum', color='Impact', facet_col = 'Age_bins', barmode = "stack", facet_col_spacing=0.05)
-# fig_impact.update_layout(legend=dict(orientation='h', yanchor="top", xanchor = "center", x = 0.5))
-
 
 ### line plot - behaviour
 result = filtered_data.groupby(['Quarter'])[behaviour_filter].sum().reset_index()
@@ -313,16 +306,10 @@ with st.container():
     with col1:
         st.plotly_chart(fig_impact, use_container_width=True)
     with col2:
-        st.plotly_chart(fig_beh, use_container_width=True)
-    
+        st.plotly_chart(fig_program, use_container_width=True)
 with st.container():
     col1, col2 = st.columns(2)
     with col1:
         st.plotly_chart(fig_sunburst, use_container_width=True)
     with col2:
-        st.plotly_chart(fig_program, use_container_width=True)
-
-
-
-
-
+        st.plotly_chart(fig_beh, use_container_width=True)
