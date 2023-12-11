@@ -102,15 +102,18 @@ fig_sunburst.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'cen
 result = filtered_data.groupby(['Quarter'])[impact_filter].sum().reset_index()
 result_melted = pd.melt(result, id_vars=['Quarter'], var_name='Impact', value_name='Sum')
 result_melted['perc_impact'] = (result_melted['Sum']/impact_filtered_data.shape[0])*100
-st.write(result_melted)
 fig_impact = px.bar(result_melted, x='Impact', y='perc_impact', color='Quarter', barmode = "stack", 
-                    title = "Total Impact made each quarter", color_discrete_sequence=custom_palette)
+                    title = "Total Impact made each quarter", color_discrete_sequence=custom_palette,
+                    labels={
+                     "Impact": "Indicators of Success",
+                     "perc_impact": "% of participants impacted",
+                 })
 fig_impact.update_layout(legend=dict(orientation='h', xanchor = "center", x = 0.5, y = 1.2))
 fig_impact.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'center'))
 for index, row in result_melted.groupby('Impact')['perc_impact'].sum().reset_index().iterrows():
     fig_impact.add_annotation(
         x=row['Impact'],
-        y=row['perc_impact'] + 30,  # Adjust the vertical position of the text
+        y=row['perc_impact'] + 15,  # Adjust the vertical position of the text
         text=str(int(row['perc_impact'])) + "%",
         showarrow=False,
     )
@@ -119,7 +122,10 @@ for index, row in result_melted.groupby('Impact')['perc_impact'].sum().reset_ind
 result = filtered_data.groupby(['Quarter'])[behaviour_filter].sum().reset_index()
 result_melted = pd.melt(result, id_vars=['Quarter'], var_name='Behaviour', value_name='Sum')
 fig_beh = px.line(result_melted, x='Quarter', y='Sum', color='Behaviour', markers = True, 
-                  title='Total participants for each quarter by Behaviour', color_discrete_sequence=custom_palette)
+                  title='Total participants for each quarter by Behaviour', color_discrete_sequence=custom_palette,
+                  labels={
+                     "Sum": "# of participants",
+                 })
 fig_beh.update_layout(legend=dict(orientation='h', yanchor="top", xanchor = "center", x = 0.5))
 fig_beh.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'center'))
 
