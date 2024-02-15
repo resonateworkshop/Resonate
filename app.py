@@ -15,7 +15,7 @@ custom_palette = ["#ff6633", "#333366", "#0099cc", "#ffcc33", "#99cc33", "#66666
 
 ### load dataset
 raw = pd.read_excel("Combined - Q1, Q2 and Q3 2023.xlsx")
-
+raw['Year'] = raw['Year'].astype(str)
 # Replace missing values in string columns with 'NA'
 string_columns = raw.select_dtypes(include=['object']).columns
 raw[string_columns] = raw[string_columns].fillna('NA')
