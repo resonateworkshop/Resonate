@@ -79,6 +79,8 @@ impact_filter = st.sidebar.multiselect('Select Impact', options=impact_columns, 
 behaviour_filter = st.sidebar.multiselect('Select Behaviour', options=behaviour_columns, default=behaviour_columns)
 
 year_filtered_data = raw[raw.columns[raw.columns.isin(year_filter)].values]
+st.write(year_filtered_data)
+
 filtered_data = raw[(raw['Age_bins'].isin(age_filter))]
 impact_data = raw[raw.columns[raw.columns.isin(impact_columns)].values]
 behaviour_data = raw[raw.columns[raw.columns.isin(behaviour_columns)].values]
@@ -90,7 +92,6 @@ filtered_data = filtered_data.merge(impact_filtered_data, left_index=True, right
 filtered_data = filtered_data.merge(behaviour_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
 
 result = filtered_data.groupby(['Year', 'Quarter', 'Age_bins'])['Participant ID'].count().reset_index()
-st.write(year_filtered_data)
 ### sunburst plot - Age bins
 fig_sunburst = px.sunburst(result, path=['Year', 'Quarter', 'Age_bins'], values='Participant ID', 
                            labels={'Participant ID': 'Participant ID'}, title = "Total participants by quarter and age", 
