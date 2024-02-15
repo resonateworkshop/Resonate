@@ -120,11 +120,11 @@ for index, row in result_melted.groupby('Impact')['perc_impact'].sum().reset_ind
         showarrow=False,
     )
 
-### line plot - behaviour
+### stacked bar plot - behaviour
 result = filtered_data.groupby(['Year', 'Quarter'])[behaviour_filter].sum().reset_index()
 result_melted = pd.melt(result, id_vars=['Year','Quarter'], var_name='Behaviour', value_name='Sum')
 st.write(result_melted)
-fig_beh = px.line(result_melted, x=['Quarter'], y='Sum', color='Behaviour', markers = True, 
+fig_beh = px.bar(result_melted, x=['Quarter'], y='Sum', color='Behaviour', markers = True, 
                   title='Total participants for each quarter by Behaviour', color_discrete_sequence=custom_palette,
                   labels={
                      "Sum": "# of participants",
