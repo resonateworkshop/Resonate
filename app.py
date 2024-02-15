@@ -90,7 +90,6 @@ behaviour_filtered_data = raw[raw.columns[raw.columns.isin(behaviour_filter)].va
 #filtered_data = filtered_data.merge(year_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
 filtered_data = filtered_data.merge(impact_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
 filtered_data = filtered_data.merge(behaviour_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
-st.write(filtered_data)
 
 result = filtered_data.groupby(['Year', 'Quarter', 'Age_bins'])['Participant ID'].count().reset_index()
 ### sunburst plot - Age bins
@@ -104,6 +103,8 @@ fig_sunburst.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'cen
 ### stacked bar plot - Impact
 result = filtered_data.groupby(['Year', 'Quarter'])[impact_filter].sum().reset_index()
 result_melted = pd.melt(result, id_vars=['Quarter'], var_name='Impact', value_name='Sum')
+st.write(result_melted)
+
 result_melted['perc_impact'] = (result_melted['Sum']/impact_filtered_data.shape[0])*100
 fig_impact = px.bar(result_melted, x='Impact', y='perc_impact', color='Quarter', barmode = "stack", 
                     title = "Total Impact made each quarter", color_discrete_sequence=custom_palette,
