@@ -87,10 +87,9 @@ impact_filtered_data = raw[raw.columns[raw.columns.isin(impact_filter)].values]
 year_filtered_data = raw[raw.columns[raw.columns.isin(year_filter)].values]
 behaviour_filtered_data = raw[raw.columns[raw.columns.isin(behaviour_filter)].values]
 
+filtered_data = filtered_data.merge(year_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
 filtered_data = filtered_data.merge(impact_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
 filtered_data = filtered_data.merge(behaviour_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
-filtered_data = filtered_data.merge(year_filtered_data, left_index=True, right_index=True,how = 'inner', suffixes=('_x', None))
-
 
 result = filtered_data.groupby(['Year', 'Quarter', 'Age_bins'])['Participant ID'].count().reset_index()
 
