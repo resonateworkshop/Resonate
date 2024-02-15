@@ -78,7 +78,7 @@ age_filter = st.sidebar.multiselect('Select Age', options=list(raw['Age_bins'].u
 impact_filter = st.sidebar.multiselect('Select Impact', options=impact_columns, default=impact_columns)
 behaviour_filter = st.sidebar.multiselect('Select Behaviour', options=behaviour_columns, default=behaviour_columns)
 
-year_filtered_data = raw[raw.columns[raw.columns.isin(year_filter)].values]
+year_filtered_data = raw[(raw['Year'].isin(year_filter))]
 st.write(year_filtered_data)
 
 filtered_data = raw[(raw['Age_bins'].isin(age_filter))]
