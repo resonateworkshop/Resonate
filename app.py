@@ -103,8 +103,6 @@ fig_sunburst.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'cen
 ### stacked bar plot - Impact
 result = filtered_data.groupby(['Year', 'Quarter'])[impact_filter].sum().reset_index()
 result_melted = pd.melt(result, id_vars=['Year', 'Quarter'], var_name='Impact', value_name='Sum')
-st.write(result_melted)
-
 result_melted['perc_impact'] = (result_melted['Sum']/impact_filtered_data.shape[0])*100
 fig_impact = px.bar(result_melted, x='Impact', y='perc_impact', color='Quarter', barmode = "stack", 
                     title = "Total Impact made each quarter", color_discrete_sequence=custom_palette,
@@ -124,7 +122,7 @@ for index, row in result_melted.groupby('Impact')['perc_impact'].sum().reset_ind
 
 ### line plot - behaviour
 result = filtered_data.groupby(['Quarter'])[behaviour_filter].sum().reset_index()
-result_melted = pd.melt(result, id_vars=['Quarter'], var_name='Behaviour', value_name='Sum')
+result_melted = pd.melt(result, id_vars=['Year','Quarter'], var_name='Behaviour', value_name='Sum')
 fig_beh = px.line(result_melted, x='Quarter', y='Sum', color='Behaviour', markers = True, 
                   title='Total participants for each quarter by Behaviour', color_discrete_sequence=custom_palette,
                   labels={
@@ -135,7 +133,7 @@ fig_beh.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'center')
 
 
 ### bar plot - Program
-result = filtered_data.groupby(['Quarter', 'Age_bins', 'Program'])['Participant ID'].count().reset_index()
+result = filtered_data.groupby(['Year', 'Quarter', 'Age_bins', 'Program'])['Participant ID'].count().reset_index()
 fig_program = px.bar(result, x='Quarter', y='Participant ID', color='Program', facet_col='Age_bins',
               title='Count of Participants by Program and Quarter',
               labels={'Participant ID': 'Count of Participant'},
