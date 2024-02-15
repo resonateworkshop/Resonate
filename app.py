@@ -102,7 +102,7 @@ fig_sunburst.update_layout(title=dict(font=dict(size=20), x = 0.5, xanchor= 'cen
 
 ### stacked bar plot - Impact
 result = filtered_data.groupby(['Year', 'Quarter'])[impact_filter].sum().reset_index()
-result_melted = pd.melt(result, id_vars=['Quarter'], var_name='Impact', value_name='Sum')
+result_melted = pd.melt(result, id_vars=['Year', 'Quarter'], var_name='Impact', value_name='Sum')
 st.write(result_melted)
 
 result_melted['perc_impact'] = (result_melted['Sum']/impact_filtered_data.shape[0])*100
